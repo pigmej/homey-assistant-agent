@@ -1,8 +1,8 @@
-version: '3.8'
+version: "3.8"
 
 services:
   homey-assistant:
-    build: .
+    image: ghcr.io/pigmej/homey-assistant-agent:latest
     volumes:
       - ${MCP_CONFIG_PATH:-./mcp.json}:/app/mcp.json:ro
       - ${ENV_FILE_PATH:-./.env}:/app/.env:ro

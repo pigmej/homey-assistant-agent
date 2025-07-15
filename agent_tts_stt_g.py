@@ -21,7 +21,7 @@ def load_mcp_servers_from_json(config_path: str) -> List[mcp.MCPServer]:
 
     servers = []
 
-    for server_config in config.get("servers", []):
+    for _, server_config in config.get("servers", {}).items():
         server_type = server_config.get("type")
 
         if server_type == "http":
