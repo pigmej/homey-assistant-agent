@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  homey-assistant:
+    build: .
+    volumes:
+      - ${MCP_CONFIG_PATH:-./mcp.json}:/app/mcp.json:ro
+      - ${ENV_FILE_PATH:-./.env}:/app/.env:ro
+    environment:
+      - MCP_CONFIG_PATH=/app/mcp.json
+    restart: unless-stopped
+    networks:
+      - homey-network
+
+networks:
+  homey-network:
+    driver: bridge
