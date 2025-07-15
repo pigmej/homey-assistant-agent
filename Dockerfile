@@ -9,6 +9,8 @@ RUN pip install uv && \
 
 COPY agent_tts_stt_g.py ./
 
+RUN uv run python agent_tts_stt_g.py download-files
+
 ENV PYTHONPATH=/app
 
-CMD ["uv", "run", "python", "agent_tts_stt_g.py"]
+CMD ["uv", "run", "python", "agent_tts_stt_g.py", "start", "--log-level", "debug"]
