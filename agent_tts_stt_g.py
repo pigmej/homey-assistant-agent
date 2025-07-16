@@ -86,12 +86,21 @@ async def entrypoint(ctx: agents.JobContext):
     mcp_servers = ctx.proc.userdata["mcp_servers"]
 
     session = AgentSession(
+        max_tool_steps=20,  # consecutive mcp tools calls
         vad=ctx.proc.userdata["vad"],
         stt=google.STT(model="latest_long", languages=["pl-PL"], punctuate=False),
         tts=google.TTS(
-            gender="female", voice_name="pl-PL-Chirp3-HD-Despina", language="pl-PL"
+            gender="female",
+            voice_name="pl-PL-Chirp3-HD-Despina",
+            language="pl-PL",
+            speaking_rate=0.8,
         ),
-        llm=google.LLM(model="gemini-2.5-flash", temperature=0.7),
+        llm=google.LLM(
+            model="gemini-2.5-flash",
+            temperature=0.7,
+            # thinking_config={"include_thoughts": True},
+            automatic_function_calling_config={"maximum_remote_calls": 100},
+        ),
         mcp_servers=mcp_servers,
     )
 
