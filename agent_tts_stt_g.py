@@ -93,7 +93,7 @@ async def entrypoint(ctx: agents.JobContext):
             gender="female",
             voice_name="pl-PL-Chirp3-HD-Despina",
             language="pl-PL",
-            speaking_rate=0.8,
+            speaking_rate=1.15,
         ),
         llm=google.LLM(
             model="gemini-2.5-flash",
