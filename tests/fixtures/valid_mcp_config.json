@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "http_server": {
+      "type": "http",
+      "url": "http://example.com/mcp"
+    },
+    "stdio_server": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "server"]
+    }
+  }
+}

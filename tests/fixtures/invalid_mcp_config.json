@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "invalid_server": {
+      "type": "unsupported"
+    },
+    "missing_url": {
+      "type": "http"
+    },
+    "missing_command": {
+      "type": "stdio"
+    }
+  }
+}
