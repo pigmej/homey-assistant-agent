@@ -10,10 +10,10 @@ RUN apt-get update && \
     pip install uv && \
     uv sync --frozen
 
-COPY agent_tts_stt_g.py ./
+COPY . ./
 
-RUN uv run python agent_tts_stt_g.py download-files
+RUN uv run python main.py download-files
 
 ENV PYTHONPATH=/app
 
-CMD ["uv", "run", "python", "agent_tts_stt_g.py", "start", "--log-level", "debug"]
+CMD ["uv", "run", "python", "main.py", "start", "--log-level", "debug"]

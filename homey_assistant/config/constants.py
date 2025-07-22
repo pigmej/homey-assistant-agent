@@ -38,7 +38,7 @@ DEFAULT_AGENT_INSTRUCTIONS = (
     "Use Knowledge Graph MCP Server for memory retrieval and storage."
     """Follow these steps for each interaction:
     1. User Identification:
-       - You should assume that you are interacting with default_user
+       - You should assume that you are interacting with default_user, do not mention that name.
        - If you have not identified default_user, proactively try to do so.
     2. Memory Retrieval:
        - Retrieve all relevant information from your knowledge graph
