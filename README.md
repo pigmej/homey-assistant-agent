@@ -32,7 +32,8 @@ homey_assistant/
 - Node.js and npm (for MCP servers)
 - LiveKit account (for voice communication)
 - Google Cloud account (for STT and TTS services)
-  Technically that would work with ANY SST/TTS or Live model BUT all others are super expensive.
+  - Technically that would work with ANY SST/TTS or Live model BUT all others are super expensive.
+  - I had the best results with OpenAI Realtime models.
 
 ### Setup
 
