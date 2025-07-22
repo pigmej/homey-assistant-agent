@@ -6,6 +6,8 @@ A LiveKit voice agent that integrates with the Homey smart home platform through
 
 The Homey Assistant Agent is a voice-enabled AI assistant designed to help users control and manage their Homey smart home devices through natural language interactions. The agent uses LiveKit for real-time audio communication, Google's speech-to-text and text-to-speech services, and integrates with Homey through MCP servers.
 
+This is meant to be used with https://github.com/pigmej/homey-assistant-nextjs which does not differ much from livekit example.
+
 ## Project Structure
 
 ```
