@@ -12,29 +12,29 @@ from livekit.agents import Agent
 class HomeyAssistant(Agent):
     """
     AI Assistant agent for Homey smart home platform.
-    
+
     This agent provides voice-based interaction with Homey smart home devices
     and services, supporting Polish language by default and integrating with
     various MCP servers for extended functionality.
     """
-    
+
     def __init__(self, instructions: Optional[str] = None) -> None:
         """
         Initialize the Homey Assistant agent.
-        
+
         Args:
             instructions: Custom instructions for the agent. If None, uses default
                          instructions optimized for Homey smart home interaction.
         """
         if instructions is None:
             instructions = self._get_default_instructions()
-            
+
         super().__init__(instructions=instructions)
-    
+
     def _get_default_instructions(self) -> str:
         """
         Get the default instructions for the Homey Assistant.
-        
+
         Returns:
             str: Comprehensive instructions for the assistant's behavior.
         """

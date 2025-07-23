@@ -23,7 +23,7 @@ from homey_assistant.utils.logging import configure_logging, set_correlation_id
 def temp_dir() -> Generator[Path, None, None]:
     """
     Create a temporary directory for test files.
-    
+
     Returns:
         Path to a temporary directory that will be cleaned up after the test.
     """
@@ -35,10 +35,10 @@ def temp_dir() -> Generator[Path, None, None]:
 def temp_config_file(temp_dir: Path) -> Generator[Path, None, None]:
     """
     Create a temporary MCP configuration file.
-    
+
     Args:
         temp_dir: Temporary directory fixture
-        
+
     Returns:
         Path to a temporary configuration file.
     """
@@ -50,21 +50,18 @@ def temp_config_file(temp_dir: Path) -> Generator[Path, None, None]:
 def valid_mcp_config() -> Dict[str, Any]:
     """
     Return a valid MCP server configuration.
-    
+
     Returns:
         Dictionary containing a valid MCP configuration.
     """
     return {
         "servers": {
-            "http_server": {
-                "type": "http",
-                "url": "http://example.com/mcp"
-            },
+            "http_server": {"type": "http", "url": "http://example.com/mcp"},
             "stdio_server": {
                 "type": "stdio",
                 "command": "python",
-                "args": ["-m", "server"]
-            }
+                "args": ["-m", "server"],
+            },
         }
     }
 
@@ -73,18 +70,14 @@ def valid_mcp_config() -> Dict[str, Any]:
 def invalid_mcp_config() -> Dict[str, Any]:
     """
     Return an invalid MCP server configuration.
-    
+
     Returns:
         Dictionary containing an invalid MCP configuration.
     """
     return {
         "servers": {
-            "invalid_server": {
-                "type": "unsupported"
-            },
-            "missing_url": {
-                "type": "http"
-            }
+            "invalid_server": {"type": "unsupported"},
+            "missing_url": {"type": "http"},
         }
     }
 
@@ -93,32 +86,34 @@ def invalid_mcp_config() -> Dict[str, Any]:
 def mcp_config_file(temp_config_file: Path, valid_mcp_config: Dict[str, Any]) -> Path:
     """
     Create a temporary MCP configuration file with valid content.
-    
+
     Args:
         temp_config_file: Path to temporary config file
         valid_mcp_config: Valid MCP configuration dictionary
-        
+
     Returns:
         Path to the configuration file.
     """
-    with open(temp_config_file, 'w') as f:
+    with open(temp_config_file, "w") as f:
         json.dump(valid_mcp_config, f)
     return temp_config_file
 
 
 @pytest.fixture(scope="function")
-def invalid_mcp_config_file(temp_config_file: Path, invalid_mcp_config: Dict[str, Any]) -> Path:
+def invalid_mcp_config_file(
+    temp_config_file: Path, invalid_mcp_config: Dict[str, Any]
+) -> Path:
     """
     Create a temporary MCP configuration file with invalid content.
-    
+
     Args:
         temp_config_file: Path to temporary config file
         invalid_mcp_config: Invalid MCP configuration dictionary
-        
+
     Returns:
         Path to the configuration file.
     """
-    with open(temp_config_file, 'w') as f:
+    with open(temp_config_file, "w") as f:
         json.dump(invalid_mcp_config, f)
     return temp_config_file
 
@@ -127,7 +122,7 @@ def invalid_mcp_config_file(temp_config_file: Path, invalid_mcp_config: Dict[str
 def mock_mcp_servers() -> List[Mock]:
     """
     Create mock MCP server instances.
-    
+
     Returns:
         List of mock MCP server objects.
     """
@@ -138,7 +133,7 @@ def mock_mcp_servers() -> List[Mock]:
 def mock_vad() -> Mock:
     """
     Create a mock Voice Activity Detection (VAD) instance.
-    
+
     Returns:
         Mock VAD object.
     """
@@ -149,7 +144,7 @@ def mock_vad() -> Mock:
 def mock_room() -> Mock:
     """
     Create a mock LiveKit room instance.
-    
+
     Returns:
         Mock Room object.
     """
@@ -160,7 +155,7 @@ def mock_room() -> Mock:
 def mock_job_context() -> Mock:
     """
     Create a mock JobContext instance.
-    
+
     Returns:
         Mock JobContext object with proc attribute.
     """
@@ -174,7 +169,7 @@ def mock_job_context() -> Mock:
 def mock_job_process() -> Mock:
     """
     Create a mock JobProcess instance.
-    
+
     Returns:
         Mock JobProcess object with userdata attribute.
     """
@@ -187,16 +182,16 @@ def mock_job_process() -> Mock:
 def configured_logging():
     """
     Configure logging for tests.
-    
+
     Sets up logging with a test correlation ID and returns to default
     configuration after the test.
     """
     # Configure logging for tests
     configure_logging(level="DEBUG")
     set_correlation_id("test-correlation-id")
-    
+
     yield
-    
+
     # Reset logging after test
     root_logger = pytest.importorskip("logging").getLogger()
     root_logger.handlers.clear()
@@ -206,7 +201,7 @@ def configured_logging():
 def homey_assistant() -> HomeyAssistant:
     """
     Create a HomeyAssistant instance for testing.
-    
+
     Returns:
         Initialized HomeyAssistant object.
     """
@@ -217,7 +212,7 @@ def homey_assistant() -> HomeyAssistant:
 def session_manager() -> SessionManager:
     """
     Create a SessionManager instance for testing.
-    
+
     Returns:
         Initialized SessionManager object.
     """
@@ -228,7 +223,7 @@ def session_manager() -> SessionManager:
 def mcp_config_loader() -> MCPConfigLoader:
     """
     Create an MCPConfigLoader instance for testing.
-    
+
     Returns:
         Initialized MCPConfigLoader object.
     """

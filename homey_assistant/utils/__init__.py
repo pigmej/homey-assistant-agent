@@ -16,12 +16,12 @@ from .logging import (
     log_error_with_context,
     log_performance,
     CorrelationFilter,
-    StructuredFormatter
+    StructuredFormatter,
 )
 
 __all__ = [
     "configure_logging",
-    "get_logger", 
+    "get_logger",
     "set_correlation_id",
     "get_correlation_id",
     "generate_correlation_id",
@@ -29,5 +29,5 @@ __all__ = [
     "log_error_with_context",
     "log_performance",
     "CorrelationFilter",
-    "StructuredFormatter"
+    "StructuredFormatter",
 ]

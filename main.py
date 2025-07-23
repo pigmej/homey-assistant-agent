@@ -6,8 +6,6 @@ that integrates with Homey smart home platform through MCP servers.
 """
 
 import logging
-import os
-from typing import Optional
 
 from dotenv import load_dotenv
 from livekit import agents

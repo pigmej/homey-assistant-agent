@@ -7,22 +7,10 @@ for agent configuration, language settings, and model parameters.
 
 # Agent Configuration
 DEFAULT_MAX_TOOL_STEPS = 20
-DEFAULT_TEMPERATURE = 0.7
-DEFAULT_MAXIMUM_REMOTE_CALLS = 100
 
-# Language and Voice Settings
-DEFAULT_LANGUAGE = "pl-PL"
-DEFAULT_VOICE_NAME = "pl-PL-Chirp3-HD-Despina"
-DEFAULT_VOICE_GENDER = "female"
-DEFAULT_SPEAKING_RATE = 1.15
-
-# STT Configuration
-DEFAULT_STT_MODEL = "latest_long"
-DEFAULT_STT_LANGUAGES = ["pl-PL"]
-DEFAULT_STT_PUNCTUATE = False
-
-# LLM Configuration
-DEFAULT_LLM_MODEL = "gemini-2.5-flash"
+# Provider Configuration
+# TTS, STT, and LLM providers are now configured via environment variables
+# See homey_assistant/config/providers.py for configuration details
 
 # MCP Configuration
 DEFAULT_MCP_CONFIG_PATH = "mcp.json"
