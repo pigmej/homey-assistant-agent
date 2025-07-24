@@ -60,6 +60,7 @@ class TTSConfig:
     speed: Optional[float] = None
     use_speaker_boost: Optional[bool] = None
 
+
 @dataclass
 class STTConfig:
     """Configuration for STT providers."""
@@ -343,7 +344,7 @@ class ProviderConfigLoader:
             if style:
                 config.style = float(style)
 
-            speed = config.speaking
+            speed = config.speaking_rate
             if speed:
                 config.speed = float(speed)
 
